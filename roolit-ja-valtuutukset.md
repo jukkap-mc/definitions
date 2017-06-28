@@ -7,10 +7,12 @@ ODA:ssa on tunnistettu seuraavat pääroolit:
 Ammattilaiskäyttäjällä on lisäksi Valviran ammattioikeudet -koodiston mukainen ammattioikeus, joka määrittää käyttöoikeudet tarkemmalla tasolla.
 * Asiakas, joka voi olla tunnistautumaton tai tunnistettu.
 
-Käyttäjä toimii aina yhdessä roolissa kerrallaan. Roolin vaihto toteutetaan kuitenkin mahdollisimman helpoksi ja käyttäjäystävälliseksi, jolloin se voidaan tehdä 'lennosta' kun ollaan kirjautuneena ja vahvasti tunnistettuna.
-Ammattilaiskäyttäjän rooli on aina organisaatiokohtainen ja se mallinnetaan HL7 FHIR PractitionerRole resurssilla (ODA-PractitionerRole-profile). Roolit listataan ODA-practitionerroles-valueset -nimikkeistössä. 
+Käyttäjä toimii aina yhdessä roolissa kerrallaan. Jos henkilöllä on vain yksi rooli, se valitaan automaattisesti, mutta jos on useita, täytyy rooli valita joko kontekstin perusteella automaattisesti tai käyttäjän toimenpiteenä.
+Roolin vaihto toteutetaan mahdollisimman helpoksi ja käyttäjäystävälliseksi, jolloin se voidaan tehdä 'lennosta' kun ollaan kirjautuneena ja vahvasti tunnistettuna. Ammattilaiskäyttäjän rooli on aina organisaatiokohtainen ja 
+se mallinnetaan HL7 FHIR PractitionerRole resurssilla (ODA-PractitionerRole-profile). Roolit listataan ODA-practitionerroles-valueset -nimikkeistössä. 
 
 ![](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/omahoito/rfc/master/ODA-Roles.plantuml?1) 
+
 
 ## Koodistot
 * Terhikki/Suosikki rekisterinumero: https://julkiterhikki.valvira.fi ja http://www.valvira.fi/terveydenhuolto/rooli-_ja_attribuuttitietopalvelu

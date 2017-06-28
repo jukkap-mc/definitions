@@ -3,12 +3,12 @@
 ## Roolit
 ODA:ssa on tunnistettu seuraavat pääroolit:
 * Organisaation pääkäyttäjä, jolla on oikeus hallita oman organisaationsa työlistoja ja niihin liitettyjä ammattilaisia.
-* Sosiaali- ja terveydenhuollon ammattilainen, joka voi olla luvitettuna yhteen tai useampaan työlistaan. Muodostaa hoitosuhteen asiakkaan kanssa, ottaessaan asiakkaan suunnitelman tai yhteydenoton vastuulleen. 
+* Sosiaali- ja terveydenhuollon ammattilainen, joka voi olla luvitettuna yhteen tai useampaan työlistaan. Muodostaa hoitosuhteen asiakkaan kanssa ottaessaan asiakkaan suunnitelman tai yhteydenoton vastuulleen. 
 Ammattilaiskäyttäjällä on lisäksi Valviran ammattioikeudet -koodiston mukainen ammattioikeus, joka määrittää käyttöoikeudet tarkemmalla tasolla.
 * Asiakas, joka voi olla tunnistautumaton tai tunnistettu.
 
 Käyttäjä toimii aina yhdessä roolissa kerrallaan. Jos henkilöllä on vain yksi rooli, se valitaan automaattisesti, mutta jos on useita, täytyy rooli valita joko kontekstin perusteella automaattisesti tai käyttäjän toimenpiteenä.
-Roolin vaihto toteutetaan mahdollisimman helpoksi ja käyttäjäystävälliseksi, jolloin se voidaan tehdä 'lennosta' kun ollaan kirjautuneena ja vahvasti tunnistettuna. Ammattilaiskäyttäjän rooli on aina organisaatiokohtainen ja 
+Roolin vaihto toteutetaan mahdollisimman helpoksi ja käyttäjäystävälliseksi, jolloin se voidaan tehdä 'lennosta' kun ollaan kirjautuneena. Ammattilaiskäyttäjän rooli on aina organisaatiokohtainen ja 
 se mallinnetaan HL7 FHIR PractitionerRole resurssilla (ODA-PractitionerRole-profile). Roolit listataan ODA-practitionerroles-valueset -nimikkeistössä. 
 
 ![](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/omahoito/rfc/master/ODA-Roles.plantuml?1) 

@@ -1,0 +1,37 @@
+@startuml
+actor Professional
+participant ODA_UI
+participant FHIR_API
+participant ODA_PHR
+
+Professional -> ODA_UI : Add new careplan
+ODA_UI -> FHIR_API : GET [base]/PlanDefinition
+FHIR_API -> ODA_PHR: GET [base]/PlanDefinition
+ODA_PHR --> FHIR_API: Bundle[PlanDefinitions]
+FHIR_API --> ODA_UI: Bundle[PlanDefinitions]
+ODA_UI --> Professional: Careplan templates
+Professional -> ODA_UI : Select a template
+ODA_UI -> FHIR_API: [base]/PlanDefinition/{id}/$create-careplan
+FHIR_API -> FHIR_API: Create Careplan json based on template
+FHIR_API --> ODA_UI: CarePlan with actions based on template
+ODA_UI --> Professional: Careplan 
+Professional -> ODA_UI: Search patient by social sec.number
+ODA_UI -> FHIR_API: Patient/$searchByNationalId
+FHIR_API -> ODA_PHR : Search patient
+ODA_PHR --> FHIR_API: Patient resource
+FHIR_API --> ODA_UI: Patient resource
+ODA_UI --> Professional: Show patient name
+Professional -> ODA_UI: Save careplan
+ODA_UI -> ODA_UI: Update Careplan.subject
+ODA_UI -> FHIR_API : CarePlan/{id}/$sendAndAssign
+FHIR_API -> FHIR_API: Update Careplan.careTeam (service request list)
+FHIR_API -> FHIR_API: Create EpisodeOfCare json
+FHIR_API -> FHIR_API: Update Careplan.context (EpisodeOfCare)
+FHIR_API -> FHIR_API: Update EpisodeOfCare.careManager
+FHIR_API -> ODA_PHR: Save transaction bundle[Careplan, EpisodeOfCare]
+ODA_PHR --> FHIR_API: OK
+FHIR_API --> ODA_UI: OK
+ODA_UI--> Professional: Careplan saved
+
+
+@enduml

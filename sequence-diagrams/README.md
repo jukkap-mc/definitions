@@ -27,3 +27,6 @@
 
 ### Appointment booking
 See https://github.com/omahoito/oda-fhir-service/blob/master/docs/appointment-booking.md
+
+### Add new careplan from template
+![](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/omahoito/definitions/master/sequence-diagrams/ODA-add-new-careplan.plantuml?1) 

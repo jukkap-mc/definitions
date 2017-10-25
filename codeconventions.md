@@ -39,6 +39,9 @@ ODA source code is developed on various platforms and editors. Therefore common 
 ## JUnit
 - Use assertThat and hamcrest matchers instead of assertEquals
 - Use `@Test(expected = SomeException.class)` instead of try-catch
+- arrange test code to follow http://wiki.c2.com/?ArrangeActAssert pattern
+  + NOTE: always add empty line before and after Act-section even if test does not contain Arrange or Assert section(s) (e.g. if test is expected to throw it does not need Assertions) to make clear separation with Act-section and missing sections.
+  + this may not be feasible in more complex integration tests where empty lines may be needed inside sections to make tests more readable.
 
 ## Application Interfaces
 - In API:s, we use PascalCase.
@@ -81,6 +84,15 @@ ODA source code is developed on various platforms and editors. Therefore common 
     2. Create feature-branch that includes all your commits and push
     3. Create pull-request and share the pull request to review the change
     4. Merge to master immediately or at least within few hours
+
+### Release methodology
+Releases are hierarchically: Major, Minor and Build.
+They are named in syntax “Productname x.yy.zzz” where x is major, y is minor and z is build number. 
+
+The project steering group that is lead by projct owner approves Major versions.
+Product Manager approves Minor versions when so favored by the Technical board.
+A new build number is assigned every time an increment of the software is committed to the public repository for testing.
+
 
 ## Misc
 

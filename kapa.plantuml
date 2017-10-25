@@ -1,4 +1,5 @@
 @startuml
+!includeurl https://raw.githubusercontent.com/omahoito/rfc/master/Styles.iuml
 footer
 KaPa architecture diagram generated with plantuml.com to github.com/omahoito/definitions. \
 CC-BY-4.0 City of Espoo 2017. \
@@ -9,6 +10,8 @@ actor Browser
 
 folder "External Services" {
     component KaPa
+    component EHR
+    component ESB
 }
 
 folder ODA {
@@ -26,7 +29,9 @@ Browser --> gw
 gw --> x
 
 x --> esb
+x --> EHR
 esb <--> sec
+esb <--> ESB
 sec <--> KaPa
 esb --> gw
 

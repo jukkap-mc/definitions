@@ -1,0 +1,31 @@
+@startuml
+actor Professional
+participant ODA_UI
+participant FHIR_API
+participant ODA_PHR
+participant NOTIFICATION_SERVICE
+actor Patient
+
+Professional -> ODA_UI : Add new activity to careplan
+ODA_UI -> FHIR_API : GET [base]/ActivityDefinition
+FHIR_API -> ODA_PHR: GET [base]/ActivityDefinition
+ODA_PHR --> FHIR_API: Bundle[ActivityDefinitions]
+FHIR_API --> ODA_UI: Bundle[ActivityDefinitions]
+ODA_UI --> Professional: Activity templates
+Professional -> ODA_UI : Select a template
+ODA_UI -> FHIR_API: [base]/ActivityDefinition/{id}/$add-to-careplan
+FHIR_API -> FHIR_API: Add new action to CarePlan resource
+FHIR_API --> ODA_UI: Updated careplan containing new action
+ODA_UI --> Professional: Updated careplan 
+
+Professional -> ODA_UI: Save careplan
+FHIR_API -> ODA_PHR: Save careplan
+ODA_PHR --> FHIR_API: OK
+FHIR_API -> NOTIFICATION_SERVICE: Notify patient
+NOTIFICATION_SERVICE -> Patient: "Updated careplan"
+NOTIFICATION_SERVICE --> FHIR_API: OK
+FHIR_API --> ODA_UI: OK
+ODA_UI--> Professional: Careplan saved
+
+
+@enduml

@@ -30,3 +30,6 @@ See https://github.com/omahoito/oda-fhir-service/blob/master/docs/appointment-bo
 
 ### Add new careplan from template
 ![](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/omahoito/definitions/master/sequence-diagrams/ODA-add-new-careplan.plantuml?1) 
+
+### Add new activity to careplan
+![](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/omahoito/definitions/master/sequence-diagrams/ODA-add-new-activity.plantuml?1) 
